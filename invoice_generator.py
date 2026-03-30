@@ -19,8 +19,8 @@ green    = colors.HexColor('#238636')
 yellow   = colors.HexColor('#E3B341')
 
 LOGO_PATH  = "boris_logo.jpeg"
-QR_GPAY    = "qr_gpay.png"
-QR_PHONEPE = "qr_phonepe.png"
+QR_GPAY    = "gpay_qr.jpg"
+QR_PHONEPE = "phonepe_qr.png"
 UPI_ID     = "yourname@upi"   # ← replace with your actual UPI ID
 
 def ps(size=10, color=white, bold=False, align=TA_LEFT):
