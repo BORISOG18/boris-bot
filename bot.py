@@ -13,10 +13,10 @@ from db import save_customer, get_all_customers, get_customer, update_payment_st
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-
+"8336408376:AAF_JV28fcAUBEDV5eIvswms1U4OmjDiefU"
 # ── PASTE YOUR NEW BOT TOKEN HERE ─────────────────────────────────────────────
-BOT_TOKEN = "8336408376:AAF_JV28fcAUBEDV5eIvswms1U4OmjDiefU"
-# ─────────────────────────────────────────────────────────────────────────────
+BOT_TOKEN = os.environ.get("8336408376:AAF_JV28fcAUBEDV5eIvswms1U4OmjDiefU"
+, "")# ─────────────────────────────────────────────────────────────────────────────
 
 MAIN_MENU = [["📄 New Invoice"], ["📋 All Customers", "🔍 Find Customer"], ["✅ Mark Paid"]]
 
