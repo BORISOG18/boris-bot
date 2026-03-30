@@ -1,3 +1,4 @@
+import os
 import io
 import datetime
 from reportlab.lib.pagesizes import letter
@@ -18,10 +19,11 @@ lt_gray  = colors.HexColor('#CDD1D9')
 green    = colors.HexColor('#238636')
 yellow   = colors.HexColor('#E3B341')
 
-LOGO_PATH  = "boris_logo.jpeg"
-QR_GPAY    = "gpay_qr.jpg"
-QR_PHONEPE = "phonepe_qr.png"
-UPI_ID     = "yourname@upi"   # ← replace with your actual UPI ID
+BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
+LOGO_PATH  = os.path.join(BASE_DIR, "boris_logo.jpeg")
+QR_GPAY    = os.path.join(BASE_DIR, "gpay_qr.jpg")
+QR_PHONEPE = os.path.join(BASE_DIR, "phonepe_qr.png")
+UPI_ID     = "boris185@fam"   # ← replace with your actual UPI ID
 
 def ps(size=10, color=white, bold=False, align=TA_LEFT):
     return ParagraphStyle('x', fontSize=size, textColor=color,
@@ -230,8 +232,10 @@ def generate_invoice(name, customer_id, item, amount, paid='pending',
 
         story.append(qr_section)
         story.append(Spacer(1, 12))
-    except Exception:
-        pass
+    except Exception as e:
+        import traceback
+        print(f"[QR ERROR] {e}")
+        traceback.print_exc()
 
     # ── FOOTER ──
     ft = Table([[
